@@ -11,7 +11,8 @@ const { entries } = await parseFeed(xml);
 
 console.log(entries[0].content.value);
 
-const document = new DOMParser().parseFromString(entries[0].content.value);
+const contentValue = entries[0].content.value;
+const document = new DOMParser().parseFromString(contentValue);
 const img = document.querySelector("img");
 console.log(img);
 
