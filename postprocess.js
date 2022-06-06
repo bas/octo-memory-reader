@@ -9,7 +9,7 @@ const xml = await response.text();
 // Optional destructuring assignment
 const { entries } = await parseFeed(xml);
 
-console.log(entries[0].content.value)
+console.log(entries[0].content.value);
 
 const document = new DOMParser().parseFromString(entries[0].content.value);
 const img = document.querySelector("img");
