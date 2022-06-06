@@ -21,3 +21,4 @@ jobs:
         with:
           http_url: https://octodex.github.com/atom.xml
           downloaded_filename: atom.xml
+          postprocess: postprocess.js
