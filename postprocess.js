@@ -1,4 +1,4 @@
-import parseFeed from "https://deno.land/x/rss/mod.ts";
+import { parseFeed } from "https://deno.land/x/rss/mod.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
 const response = await fetch(
