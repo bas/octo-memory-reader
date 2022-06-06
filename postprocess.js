@@ -1,5 +1,15 @@
-import { parseFeed } from "https://deno.land/x/rss/mod.ts";
+import {
+  DublinCore,
+  MediaRss,
+  parseFeed,
+} from "https://deno.land/x/rss/mod.ts";
 
-const filename = Deno.args[0];
-const feed = parseFeed(filename);
-console.log(feed);
+const response = await fetch(
+  "https://octodex.github.com/atom.xml",
+);
+const xml = await response.text();
+
+console.log(xml);
+
+// Optional destructuring assignment
+// const { entries } = await parseFeed(xml);
