@@ -9,13 +9,7 @@ const response = await fetch(
 );
 const xml = await response.text();
 
-console.log(xml);
-
 // Optional destructuring assignment
 const { entries } = await parseFeed(xml);
 
-// Access fields using the DublinCore and MediaRss enums
-const dcTitle = entries[0][DublinCore.Title];
-const mediaContent = entries[0][MediaRss.Content];
-
-console.log(mediaContent);
+console.log(entries[0])
