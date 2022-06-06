@@ -12,4 +12,4 @@ const xml = await response.text();
 // Optional destructuring assignment
 const { entries } = await parseFeed(xml);
 
-console.log(entries[0])
+console.log(entries[0].content.value)
