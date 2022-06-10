@@ -9,9 +9,11 @@ for entry in entries:
   url = soup.img['src']
   name = os.path.basename(url)
   ext = os.path.splitext(name)[1]
+  os.makedirs("images", exist_ok=True)
   
   if (ext == ".png"):
     image = Image.open(requests.get(url, stream=True).raw)
     image.thumbnail((200, 200))
-    image.save(name)
+    name_and_path = os.path.join("images", name)
+    image.save(name_and_path)
 
