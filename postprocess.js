@@ -1,18 +1,12 @@
-import { parseFeed } from "https://deno.land/x/rss/mod.ts";
-import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+const pip_install = Deno.run({
+  cmd: ['python', '-m', 'pip', 'install', '-r', 'requirements.txt'],
+});
 
-const response = await fetch(
-  "https://octodex.github.com/atom.xml",
-);
-const xml = await response.text();
+await pip_install.status();
 
-// Optional destructuring assignment
-const { entries } = await parseFeed(xml);
+const py_run = Deno.run({
+    cmd: ['python', './postprocessing.py'].concat(Deno.args),
+});
 
-console.log(entries[0].content.value);
-
-//const contentValue = entries[0].content.value;
-//const document = new DOMParser().parseFromString(contentValue, "text/html",);
-//const img = document.querySelector("img");
-//console.log(img);
+await py_run.status();
 
