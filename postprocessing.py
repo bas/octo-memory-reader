@@ -18,7 +18,7 @@ for entry in feed.entries:
     image = Image.open(requests.get(url, stream=True).raw)
     image.resize((200, 200))
     name_and_path = os.path.join("public/img", name)
-    image.save(name_and_path, exist_ok=True)
+    image.save(name_and_path, exist_ok=True, optimize=True, quality=100)
     images.append(f'{{ src: "/img/{name}", matched: false }},')
 
 with open("images/images.ts", "w+") as f:
